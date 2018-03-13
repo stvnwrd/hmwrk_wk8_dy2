@@ -22,5 +22,8 @@ public class Runner {
 
         File file4 = new File("end_of_term_presentation", "ppt", 2359309, folder2);
         DBHelper.save(file4);
+
+        DBHelper.delete(file3);
+
     }
 }
