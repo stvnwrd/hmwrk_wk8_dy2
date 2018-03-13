@@ -2,6 +2,8 @@ import db.DBHelper;
 import models.File;
 import models.Folder;
 
+import java.util.List;
+
 public class Runner {
 
     public static void main(String[] args) {
@@ -23,7 +25,21 @@ public class Runner {
         File file4 = new File("end_of_term_presentation", "ppt", 2359309, folder2);
         DBHelper.save(file4);
 
+        Folder foundFolder = DBHelper.find(Folder.class, folder2.getId());
+
+        File foundFile = DBHelper.find(File.class, file2.getId());
+
+        List<File> results = DBHelper.getFilesByFolder(folder2);
+
         DBHelper.delete(file3);
+
+        file4.setFileName("eot_pres_FINAL_FINAL_v2");
+        DBHelper.update(file4);
+
+        List<File> results2 = DBHelper.getFilesByFolder(folder2);
+
+
+
 
     }
 }
